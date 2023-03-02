@@ -1,4 +1,5 @@
 ﻿using System.Collections.Generic;
+using System.Linq;
 
 namespace Calculator
 {
@@ -29,11 +30,17 @@ namespace Calculator
 
                 if (ListMathChars.Contains(expression[i]))
                 {
-                    parsedExpression += Separator.ToString() + expression[i].ToString() + Separator.ToString();
+                    if (i > 0 && 
+                        parsedExpression[parsedExpression.Length - 1] != Separator)
+                        parsedExpression += Separator;
+                    parsedExpression += expression[i].ToString();
+                    if (i < expression.Length-1)
+                        parsedExpression += Separator;
                     continue;
                 }
             }
-            return parsedExpression.Split(Separator);
+            
+            return UnaryMinusFinder.ReplaceUnaryMinus(parsedExpression.Split(Separator));
         }
     }
 }

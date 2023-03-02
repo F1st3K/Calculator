@@ -42,6 +42,7 @@
         <Compile Include="ExpressionParser.cs" />
         <Compile Include="ExpressionInPostfix.cs" />
         <Compile Include="Properties\AssemblyInfo.cs" />
+        <Compile Include="UnaryMinusFinder.cs" />
     </ItemGroup>
     <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
     <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
