@@ -6,16 +6,6 @@ namespace Calculator
     public static class ExpressionParser
     {
         private const char Separator = '_';
-        private static readonly List<char> ListMathChars = new()
-        {
-            '(',
-            ')',
-            '+',
-            '-',
-            '*',
-            '/',
-            '^',
-        };
 
         public static string[] Parse(string expression)
         {
@@ -28,12 +18,16 @@ namespace Calculator
                     continue;
                 }
 
-                if (ListMathChars.Contains(expression[i]))
+                if (MathOperands.OperationPriority.ContainsKey(expression[i]) ||
+                    expression[i] == MathOperands.LeftParenthesis ||
+                    expression[i] == MathOperands.RightParenthesis)
                 {
                     if (i > 0 && 
                         parsedExpression[parsedExpression.Length - 1] != Separator)
                         parsedExpression += Separator;
+                    
                     parsedExpression += expression[i].ToString();
+                    
                     if (i < expression.Length-1)
                         parsedExpression += Separator;
                     continue;

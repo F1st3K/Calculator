@@ -41,6 +41,7 @@
     <ItemGroup>
         <Compile Include="ExpressionParser.cs" />
         <Compile Include="ExpressionInPostfix.cs" />
+        <Compile Include="MathOperands.cs" />
         <Compile Include="Properties\AssemblyInfo.cs" />
         <Compile Include="UnaryMinusFinder.cs" />
     </ItemGroup>
