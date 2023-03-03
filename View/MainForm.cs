@@ -17,9 +17,23 @@ namespace View
 
         private void MainForm_Load(object sender, EventArgs e)
         {
-            var calculator = new global::Calculator.Calculator();
-            calculator.Calculate("45-(-15)+5/(10*2+5)");
-            MessageBox.Show(calculator.Result.ToString());
+            
+        }
+
+        private void _calculateButton_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                var calculator = new global::Calculator.Calculator();
+                calculator.Calculate(_inputExpression.Text);
+                _inputExpression.Text = calculator.InfixExpression;
+                _convertedExpression.Text = calculator.PosfixExpression;
+                _resultExpression.Text = calculator.Result.ToString();
+            }
+            catch (Exception exception)
+            {
+                MessageBox.Show(exception.Message);
+            }
         }
     }
 }

@@ -3,13 +3,15 @@
     internal static class ExpressionParser
     {
         private const char Separator = '_';
+        private const char Dote = ',';
 
         public static string[] Parse(string expression)
         {
             var parsedExpression = string.Empty;
             for (int i = 0; i < expression.Length; i++)
             {
-                if (char.IsDigit(expression[i]))
+                if (char.IsDigit(expression[i]) ||
+                    expression[i] == Dote)
                 {
                     parsedExpression += expression[i].ToString();
                     continue;

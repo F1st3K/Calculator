@@ -30,7 +30,7 @@ namespace Calculator.CalculatorFromPostfix
                     else
                     {
                         if (resultStack.Count < 2)
-                            throw new ArgumentException("a little operands");
+                            throw new ArgumentException("wrong number of operators (few operands)");
                         result = Execute(postfixExpression[i], resultStack.Pop(), resultStack.Pop());
                     }
                     resultStack.Push(result);

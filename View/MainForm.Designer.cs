@@ -91,6 +91,7 @@
             this._calculateButton.TabIndex = 2;
             this._calculateButton.Text = "Вычеслить";
             this._calculateButton.UseVisualStyleBackColor = true;
+            this._calculateButton.Click += new System.EventHandler(this._calculateButton_Click);
             // 
             // MainForm
             // 
