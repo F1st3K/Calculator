@@ -1,21 +1,19 @@
 ﻿using System.Collections.Generic;
-using System.ComponentModel;
 
-namespace Calculator
+namespace Calculator.ConverterInPostfix
 {
-    public class ExpressionInPostfix
+    internal class ExpressionInPostfix
     {
-        public ExpressionInPostfix(string infixExpression)
-        {
-            InfixExpression = infixExpression;
-        }
-
         public string[] PostfixExpression { get; private set; }
+        
+        public string PostfixString { get; private set; }
 
         public string InfixExpression { get; private set; }
 
-        public void Convert()
+        public void Convert(string infixExpression)
         {
+            InfixExpression = infixExpression;
+            
             string[] parseExpression = ExpressionParser.Parse(InfixExpression);
             UnaryMinusFinder.ReplaceUnaryMinus(parseExpression);
             var generalQueue = new Queue<string>();
@@ -76,10 +74,20 @@ namespace Calculator
                 generalQueue.Enqueue(operationStack.Pop());
             }
 
+            RecordResults(generalQueue);
+        }
+
+        private void RecordResults(Queue<string> generalQueue)
+        {
             PostfixExpression = new string[generalQueue.Count];
             for (int i = 0; i < PostfixExpression.Length; i++)
             {
                 PostfixExpression[i] = generalQueue.Dequeue();
+            }
+
+            foreach (var element in PostfixExpression)
+            {
+                PostfixString += element;
             }
         }
     }

@@ -2,7 +2,7 @@
 
 namespace Calculator
 {
-    public static class MathOperators
+    internal static class MathOperators
     {
         public static readonly string LeftParenthesis  = "(";
         public static readonly string RightParenthesis  = ")";

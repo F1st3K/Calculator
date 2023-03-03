@@ -1,9 +1,6 @@
-﻿using System.Collections.Generic;
-using System.Linq;
-
-namespace Calculator
+﻿namespace Calculator.ConverterInPostfix
 {
-    public static class ExpressionParser
+    internal static class ExpressionParser
     {
         private const char Separator = '_';
 

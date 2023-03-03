@@ -1,10 +1,9 @@
-﻿using System;
-
-namespace Calculator
+﻿namespace Calculator.ConverterInPostfix
 {
-    public static class UnaryMinusFinder
+    internal static class UnaryMinusFinder
     {
-        private const char UnaryMinus = '~';
+        public const char UnaryMinus = '~';
+        
         private const char Minus = '-';
         private const char LeftParenthesis = '(';
 

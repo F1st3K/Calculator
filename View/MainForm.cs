@@ -1,6 +1,5 @@
 ﻿using System;
 using System.Windows.Forms;
-using Calculator;
 
 namespace View
 {
@@ -18,16 +17,9 @@ namespace View
 
         private void MainForm_Load(object sender, EventArgs e)
         {
-            string strs = String.Empty;
-            var converter = new ExpressionInPostfix("45 - (-15) + 5");
-            converter.Convert();
-            string[] mass = converter.PostfixExpression;
-            UnaryMinusFinder.ReplaceUnaryMinus(mass);
-            foreach (var str in mass)
-            {
-                strs += str;
-            }
-            MessageBox.Show(strs);
+            var calculator = new global::Calculator.Calculator();
+            calculator.Calculate("45-(-15)+5/(10*2+5)");
+            MessageBox.Show(calculator.Result.ToString());
         }
     }
 }
