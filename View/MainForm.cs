@@ -19,7 +19,11 @@ namespace View
         private void MainForm_Load(object sender, EventArgs e)
         {
             string strs = String.Empty;
-            foreach (var str in ExpressionParser.Parse("-2 + 3 4*(2-3 )"))
+            var converter = new ExpressionInPostfix("45 - (-15) + 5");
+            converter.Convert();
+            string[] mass = converter.PostfixExpression;
+            UnaryMinusFinder.ReplaceUnaryMinus(mass);
+            foreach (var str in mass)
             {
                 strs += str;
             }

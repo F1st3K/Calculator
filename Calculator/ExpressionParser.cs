@@ -18,9 +18,9 @@ namespace Calculator
                     continue;
                 }
 
-                if (MathOperands.OperationPriority.ContainsKey(expression[i]) ||
-                    expression[i] == MathOperands.LeftParenthesis ||
-                    expression[i] == MathOperands.RightParenthesis)
+                if (MathOperators.OperationPriority.ContainsKey(expression[i].ToString()) ||
+                    expression[i].ToString() == MathOperators.LeftParenthesis ||
+                    expression[i].ToString() == MathOperators.RightParenthesis)
                 {
                     if (i > 0 && 
                         parsedExpression[parsedExpression.Length - 1] != Separator)
@@ -34,7 +34,7 @@ namespace Calculator
                 }
             }
             
-            return UnaryMinusFinder.ReplaceUnaryMinus(parsedExpression.Split(Separator));
+            return parsedExpression.Split(Separator);
         }
     }
 }
